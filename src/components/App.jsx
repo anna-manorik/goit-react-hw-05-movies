@@ -1,48 +1,52 @@
-import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Menu from './Menu/Menu';
-import FilmList from './FilmList/FilmList';
-import FilmSearch from './FilmSearch/FilmSearch';
-import FilmInfo from './FilmInfo/FilmInfo';
-import FilmCast from './FilmCast/FilmCast';
-import FilmReviews from './FilmReviews/FilmReviews';
+// import FilmList from './FilmList/FilmList';
+// import FilmSearch from './FilmSearch/FilmSearch';
+// import FilmInfo from './FilmInfo/FilmInfo';
+// import FilmCast from './FilmCast/FilmCast';
+// import FilmReviews from './FilmReviews/FilmReviews';
+
+const FilmList = lazy(() => import('./FilmList/FilmList.js'));
+const FilmSearch = lazy(() => import('./FilmSearch/FilmSearch.js'));
+const FilmInfo = lazy(() => import('./FilmInfo/FilmInfo.js'));
+const FilmCast = lazy(() => import('./FilmCast/FilmCast.js'));
+const FilmReviews = lazy(() => import('./FilmReviews/FilmReviews.js'));
 
 export default function App() {
-  const location = useLocation();
-
-  console.log(location);
-
   return (
     <>
       <Menu />
 
-      <Routes>
-        <Route path="/" element={<FilmList />} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<FilmList />} />
 
-        <Route path="/movies" element={<FilmSearch />} />
+          <Route path="/movies" element={<FilmSearch />} />
 
-        <Route path="/movies/:filmId" element={<FilmInfo />} />
+          <Route path="/movies/:filmId" element={<FilmInfo />} />
 
-        <Route
-          path="/movies/:filmId/cast"
-          element={
-            <>
-              <FilmInfo />
-              <FilmCast />
-            </>
-          }
-        />
+          <Route
+            path="/movies/:filmId/cast"
+            element={
+              <>
+                <FilmInfo />
+                <FilmCast />
+              </>
+            }
+          />
 
-        <Route
-          path="/movies/:filmId/reviews"
-          element={
-            <>
-              <FilmInfo />
-              <FilmReviews />
-            </>
-          }
-        />
-      </Routes>
+          <Route
+            path="/movies/:filmId/reviews"
+            element={
+              <>
+                <FilmInfo />
+                <FilmReviews />
+              </>
+            }
+          />
+        </Routes>
+      </Suspense>
     </>
   );
 }
