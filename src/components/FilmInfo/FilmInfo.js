@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 
 export default function FilmInfo() {
   const { filmId } = useParams('');
   const [film, setFilm] = useState({});
   const [genresList, setGenresList] = useState([]);
+
+  const navigate = useNavigate();
 
   async function fetchAPI() {
     const URL = `https://api.themoviedb.org/3/movie/${filmId}?api_key=893305900bfa999f02bdcec91556216a`;
@@ -24,7 +26,7 @@ export default function FilmInfo() {
 
   return (
     <>
-      {/* <Link to=''>Go back</Link> */}
+      <button onClick={() => navigate(-1)}>Go back</button>
       <div className={styles.container}>
         <img
           src={`https://image.tmdb.org/t/p/original/${film.poster_path}?api_key=893305900bfa999f02bdcec91556216a`}
