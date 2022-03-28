@@ -9,16 +9,14 @@ export default function Menu() {
         <NavLink
           exact
           to="/"
-          className={styles.link}
-          activeClassName={styles.active}
+          className={({ isActive }) => isActive ? styles.active : styles.link}
         >
           Home
         </NavLink>
 
         <NavLink
           to="/movies"
-          className={styles.link}
-          activeClassName={styles.active}
+          className={({ isActive }) => isActive ? styles.active : styles.link}
         >
           Movies
         </NavLink>
