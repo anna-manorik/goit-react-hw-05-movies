@@ -51,10 +51,10 @@ export default function FilmInfo() {
       <div>
         <ul>
           <li>
-            <Link to={process.env.PUBLIC_URL + `/movies/${filmId}/cast`}>Cast</Link>
+            <Link to={`/movies/${filmId}/cast`}>Cast</Link>
           </li>
           <li>
-            <Link to={process.env.PUBLIC_URL + `/movies/${filmId}/reviews`}>Reviews</Link>
+            <Link to={`/movies/${filmId}/reviews`}>Reviews</Link>
           </li>
         </ul>
       </div>
