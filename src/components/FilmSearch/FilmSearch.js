@@ -55,7 +55,7 @@ export default function FilmSearch() {
           ? JSON.parse(localStorage.getItem('searchFilmList')).map(
               ({ id, title }) => (
                 <li key={id}>
-                  <Link to={`/movies/${id}`}>{title}</Link>
+                  <Link to={process.env.PUBLIC_URL + `/movies/${id}`}>{title}</Link>
                 </li>
               )
             )
