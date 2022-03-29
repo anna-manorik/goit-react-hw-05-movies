@@ -8,14 +8,14 @@ export default function Menu() {
       <nav>
         <NavLink
           exact
-          to="/"
+          to={process.env.PUBLIC_URL + '/'}
           className={({ isActive }) => isActive ? styles.active : styles.link}
         >
           Home
         </NavLink>
 
         <NavLink
-          to="/movies"
+          to={process.env.PUBLIC_URL + '/movies'}
           className={({ isActive }) => isActive ? styles.active : styles.link}
         >
           Movies
