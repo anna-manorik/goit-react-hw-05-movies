@@ -6,7 +6,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter basename="/goit-react-hw-05-movies/">
+    <HashRouter basename="/">
       <App />
     </HashRouter >
   </React.StrictMode>,
