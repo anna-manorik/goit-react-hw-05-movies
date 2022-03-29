@@ -12,6 +12,7 @@ const FilmSearch = lazy(() => import('./FilmSearch/FilmSearch.js'));
 const FilmInfo = lazy(() => import('./FilmInfo/FilmInfo.js'));
 const FilmCast = lazy(() => import('./FilmCast/FilmCast.js'));
 const FilmReviews = lazy(() => import('./FilmReviews/FilmReviews.js'));
+const PageNotFound = lazy(() => import('./PageNotFound/PageNotFound.js'));
 
 export default function App() {
   return (
@@ -20,7 +21,7 @@ export default function App() {
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<FilmList />} />
+          <Route exact path="/" element={<FilmList />} />
 
           <Route path="/movies" element={<FilmSearch />} />
 
@@ -45,6 +46,8 @@ export default function App() {
               </>
             }
           />
+
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Suspense>
     </>
