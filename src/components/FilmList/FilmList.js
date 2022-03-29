@@ -27,7 +27,7 @@ export default function FilmList() {
           ({ id, title }) =>
             title && (
               <li key={id}>
-                <Link to={`/movies/${id}`}>{title}</Link>
+                <Link to={process.env.PUBLIC_URL + `/movies/${id}`}>{title}</Link>
               </li>
             )
         )}
