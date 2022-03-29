@@ -20,14 +20,14 @@ export default function App() {
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path={process.env.PUBLIC_URL + '/'} element={<FilmList />} />
+          <Route path="/" element={<FilmList />} />
 
-          <Route path="process.env.PUBLIC_URL + /movies" element={<FilmSearch />} />
+          <Route path="/movies" element={<FilmSearch />} />
 
-          <Route path="process.env.PUBLIC_URL + /movies/:filmId" element={<FilmInfo />} />
+          <Route path="/movies/:filmId" element={<FilmInfo />} />
 
           <Route
-            path="process.env.PUBLIC_URL + /movies/:filmId/cast"
+            path="/movies/:filmId/cast"
             element={
               <>
                 <FilmInfo />
@@ -37,7 +37,7 @@ export default function App() {
           />
 
           <Route
-            path="process.env.PUBLIC_URL + /movies/:filmId/reviews"
+            path="/movies/:filmId/reviews"
             element={
               <>
                 <FilmInfo />
