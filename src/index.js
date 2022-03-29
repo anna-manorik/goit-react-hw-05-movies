@@ -6,7 +6,7 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter  basename={process.env.PUBLIC_URL}>
+    <HashRouter basename="/goit-react-hw-05-movies/">
       <App />
     </HashRouter >
   </React.StrictMode>,
