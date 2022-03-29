@@ -20,7 +20,7 @@ export default function App() {
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="process.env.PUBLIC_URL + /" element={<FilmList />} />
+          <Route path={process.env.PUBLIC_URL + '/'} element={<FilmList />} />
 
           <Route path="process.env.PUBLIC_URL + /movies" element={<FilmSearch />} />
 
