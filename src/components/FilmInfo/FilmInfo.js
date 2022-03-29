@@ -23,7 +23,6 @@ export default function FilmInfo() {
       })
       .catch(err => {
         setIsRender(false);
-        console.log(isRender);
       });
   }
 
